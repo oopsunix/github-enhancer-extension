@@ -1,0 +1,35 @@
+/* ============================================
+   Material Icons for GitHub — Base SVG Hiding Rules
+   Icon CSS classes are dynamically injected via JS
+   from chrome.storage.local (downloaded from CDN).
+   ============================================ */
+
+#folder-row-0 svg,
+.ActionList-item-visual--leading > svg,
+.PRIVATE_TreeView-directory-icon > svg,
+.PRIVATE_TreeView-item-visual > svg,
+.react-directory-filename-column svg {
+  color: transparent !important;
+}
+
+#folder-row-0 svg *,
+.ActionList-item-visual--leading svg *,
+.PRIVATE_TreeView-directory-icon svg *,
+.PRIVATE_TreeView-item-visual svg *,
+.react-directory-filename-column svg * {
+  fill: transparent !important;
+  stroke: transparent !important;
+}
+
+#folder-row-0 svg,
+.ActionList-item-visual--leading > svg,
+.PRIVATE_TreeView-directory-icon > svg,
+.PRIVATE_TreeView-item-visual > svg,
+.react-directory-filename-column svg {
+  background-color: transparent !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  height: 1.35em !important;
+  width: 1.35em !important;
+}

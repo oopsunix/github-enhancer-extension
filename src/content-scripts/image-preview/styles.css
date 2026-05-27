@@ -1,0 +1,115 @@
+#ge-ip-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity .3s;
+}
+body.ge-ip-active #ge-ip-mask {
+  display: flex;
+  opacity: 1;
+}
+
+#ge-ip-container {
+  position: relative;
+  cursor: move;
+  will-change: transform;
+}
+
+#ge-ip-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.7);
+  opacity: 0;
+  transition: opacity .4s;
+  user-select: none;
+  pointer-events: none;
+}
+#ge-ip-img.loaded { opacity: 1; }
+
+#ge-ip-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 40;
+}
+
+#ge-ip-download, #ge-ip-close {
+  width: 36px;
+  height: 36px;
+  background: rgba(0,0,0,.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,.3);
+  backdrop-filter: blur(4px);
+  transition: all .25s;
+}
+#ge-ip-download:hover, #ge-ip-close:hover {
+  transform: scale(1.15);
+  border-color: #fff;
+}
+#ge-ip-close:hover { background: rgba(220,38,38,.9); }
+#ge-ip-controls svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+#ge-ip-prev, #ge-ip-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(0,0,0,.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: .8;
+  transition: all .25s;
+  z-index: 30;
+}
+#ge-ip-prev { left: 30px; }
+#ge-ip-next { right: 30px; }
+#ge-ip-prev:hover, #ge-ip-next:hover {
+  opacity: 1;
+  background: rgba(0,0,0,.85);
+  transform: translateY(-50%) scale(1.15);
+}
+#ge-ip-prev svg, #ge-ip-next svg {
+  width: 30px;
+  height: 30px;
+  stroke: #fff;
+  stroke-width: 3.5;
+  fill: none;
+}
+#ge-ip-prev.disabled, #ge-ip-next.disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  #ge-ip-controls { top: 12px; right: 12px; gap: 10px; }
+  #ge-ip-download, #ge-ip-close { width: 32px; height: 32px; }
+  #ge-ip-controls svg { width: 16px; height: 16px; }
+  #ge-ip-prev, #ge-ip-next { width: 48px; height: 48px; }
+  #ge-ip-prev { left: 15px; }
+  #ge-ip-next { right: 15px; }
+}
