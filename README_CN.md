@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="src/icons/icon128.png" alt="GitHub Enhance Logo" width="128" height="128">
-  <h1 align="center">GitHub Enhance</h1>
+  <img src="src/icons/icon128.png" alt="GitHub Enhancer Logo" width="128" height="128">
+  <h1 align="center">GitHub Enhancer</h1>
   <p align="center">一款提升 GitHub 日常使用体验的浏览器扩展</p>
   <p align="center">
     <a href="README.md">English</a>
@@ -11,7 +11,7 @@
 
 ## 📖 简介
 
-**GitHub Enhance** 是一款专为 GitHub 设计的 Chrome 浏览器扩展，旨在通过一系列实用功能优化你的 GitHub 浏览体验。无论是代码审查、仓库浏览还是日常开发，它都能让操作更加高效、直观和愉悦。
+**GitHub Enhancer** 是一款专为 GitHub 设计的 Chrome 浏览器扩展，旨在通过一系列实用功能优化你的 GitHub 浏览体验。无论是代码审查、仓库浏览还是日常开发，它都能让操作更加高效、直观和愉悦。
 
 扩展本身轻量、零依赖，所有功能均可独立开关，你可以根据个人偏好自由组合。
 
@@ -88,7 +88,7 @@
 ## 🧩 项目结构
 
 ```
-github-enhance-extension/
+github-enhancer-extension/
 ├── LICENSE                         # MIT 开源许可证
 ├── README.md                       # 英文说明文档
 └── src/
@@ -102,10 +102,6 @@ github-enhance-extension/
     │   ├── material-icons/         # Material 图标替换
     │   ├── repo-size/              # 仓库与文件大小显示
     │   └── time-format/            # 相对时间格式化
-    ├── lib/
-    │   ├── api.js                  # GitHub API 封装
-    │   ├── storage.js              # 存储工具函数
-    │   └── utils.js                # 通用工具函数
     ├── icons/
     │   ├── icon16.png              # 16×16 扩展图标
     │   ├── icon48.png              # 48×48 扩展图标
@@ -128,7 +124,7 @@ github-enhance-extension/
 
 1. 克隆本仓库到本地：
    ```bash
-   git clone https://github.com/oopsunix/github-enhance-extension.git
+   git clone https://github.com/oopsunix/github-enhancer-extension.git
    ```
 2. 打开 Chrome 浏览器，进入 `chrome://extensions/`
 3. 开启右上角的 **开发者模式**

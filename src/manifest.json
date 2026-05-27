@@ -1,12 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "GitHub Enhance",
+  "name": "GitHub Enhancer",
   "version": "1.0.0",
-  "description": "GitHub 增强插件：Material 图标、返回顶部、时间格式化、图片预览、文件大小",
+  "description": "GitHub 增强扩展：Material 图标、返回顶部、时间格式化、图片预览、文件大小",
   "permissions": ["storage"],
   "host_permissions": [
     "https://github.com/*",
-    "https://api.github.com/*"
+    "https://api.github.com/*",
+    "https://rettend.github.io/*"
   ],
   "background": {
     "service_worker": "background/service-worker.js"

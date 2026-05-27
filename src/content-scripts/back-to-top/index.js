@@ -1,6 +1,6 @@
 (function () {
   'use strict'
-  console.log('[GitHub Enhance] back-to-top loaded')
+  console.log('[GitHub Enhancer] back-to-top loaded')
 
   var ENABLED = true
   var btn = null
