@@ -1,0 +1,19 @@
+.ge-rs-total .Link {
+  cursor: default;
+}
+.ge-rs-total .Link:hover {
+  text-decoration: none;
+}
+.ge-rs-is {
+  font-size: 11px;
+  color: #6e7681;
+  margin-left: 4px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.ge-rs-is::before {
+  content: '(';
+}
+.ge-rs-is::after {
+  content: ')';
+}

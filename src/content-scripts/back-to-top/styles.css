@@ -1,0 +1,29 @@
+#ge-btt {
+  position: fixed;
+  bottom: 32px;
+  right: 24px;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #24292f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.25s, transform 0.25s, background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  pointer-events: none;
+}
+#ge-btt.ge-btt-show {
+  opacity: 0.75;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#ge-btt:hover {
+  opacity: 1;
+  background: #0969da;
+}

@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #24292f;
+  background: #fff;
+  width: 320px;
+  overflow-x: hidden;
+}
+
+.ge-popup {
+  padding: 12px;
+}
+
+.ge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.ge-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ge-version {
+  font-size: 11px;
+  color: #656d76;
+}
+
+.ge-module {
+  margin-bottom: 8px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ge-module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease;
+}
+
+.ge-module-header:hover {
+  background: #f6f8fa;
+}
+
+.ge-module-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ge-module-icon {
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ge-module-name {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.ge-module-desc {
+  font-size: 11px;
+  color: #656d76;
+  margin-top: 1px;
+}
+
+.ge-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.ge-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ge-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d0d7de;
+  border-radius: 20px;
+  transition: background 0.2s ease;
+}
+
+.ge-slider:before {
+  content: '';
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.ge-switch input:checked + .ge-slider {
+  background: #2da44e;
+}
+
+.ge-switch input:checked + .ge-slider:before {
+  transform: translateX(16px);
+}
+
+.ge-module-options {
+  padding: 8px 12px 12px;
+  border-top: 1px solid #efeef3;
+  background: #f6f8fa;
+}
+
+.ge-option-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.ge-option-row:first-child {
+  margin-top: 0;
+}
+
+.ge-input {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.ge-input:focus {
+  border-color: #0969da;
+  box-shadow: 0 0 0 2px rgba(9,105,218,0.2);
+}
+
+.ge-input-sm {
+  max-width: 60px;
+}
+
+.ge-select {
+  padding: 4px 6px;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.ge-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #d0d7de;
+}
+
+.ge-footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ge-footer-author {
+  font-size: 13px;
+  color: #656d76;
+}
+
+.ge-footer-author a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+.ge-footer-author a:hover {
+  text-decoration: underline;
+}
+
+.ge-footer-star {
+  font-size: 11px;
+  color: #8b949e;
+  line-height: 1.4;
+}
+
+.ge-footer-star a {
+  color: #0969da;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ge-footer-star a:hover {
+  text-decoration: underline;
+}
+
+.ge-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ge-footer-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: #656d76;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.ge-footer-github:hover {
+  background: #f6f8fa;
+  color: #24292f;
+}
+
+.ge-btn {
+  padding: 5px 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #f6f8fa;
+  color: #24292f;
+  transition: background 0.15s ease;
+}
+
+.ge-btn:hover {
+  background: #eaeef2;
+}
+
+.ge-btn-secondary {
+  color: #656d76;
+}
+
+.ge-status {
+  font-size: 11px;
+  color: #656d76;
+  transition: opacity 0.3s ease;
+}

@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Enhance",
+  "version": "1.0.0",
+  "description": "GitHub 增强插件：Material 图标、返回顶部、时间格式化、图片预览、文件大小",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://api.github.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content-scripts/material-icons/index.js"],
+      "css": ["content-scripts/material-icons/styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content-scripts/back-to-top/index.js"],
+      "css": ["content-scripts/back-to-top/styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content-scripts/time-format/index.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content-scripts/image-file-layout/index.js"],
+      "css": ["content-scripts/image-file-layout/styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content-scripts/image-preview/index.js"],
+      "css": ["content-scripts/image-preview/styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content-scripts/repo-size/index.js"],
+      "css": ["content-scripts/repo-size/styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
