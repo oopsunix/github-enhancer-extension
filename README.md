@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="src/icons/icon128.png" alt="GitHub Enhance Logo" width="128" height="128">
-  <h1 align="center">GitHub Enhance</h1>
+  <img src="src/icons/icon128.png" alt="GitHub Enhancer Logo" width="128" height="128">
+  <h1 align="center">GitHub Enhancer</h1>
   <p align="center">A browser extension that enhances your daily GitHub experience</p>
   <p align="center">
     <strong>English · </strong>
@@ -11,7 +11,7 @@
 
 ## 📖 Introduction
 
-**GitHub Enhance** is a Chrome browser extension designed for GitHub, aiming to optimize your GitHub browsing experience through a series of practical features. Whether it's code review, repository browsing, or daily development, it makes operations more efficient, intuitive, and enjoyable.
+**GitHub Enhancer** is a Chrome browser extension designed for GitHub, aiming to optimize your GitHub browsing experience through a series of practical features. Whether it's code review, repository browsing, or daily development, it makes operations more efficient, intuitive, and enjoyable.
 
 The extension is lightweight, zero-dependency, and all features can be toggled independently, allowing you to combine them according to your personal preferences.
 
@@ -88,7 +88,7 @@ The extension provides an intuitive **popup panel** for centralized management o
 ## 🧩 Project Structure
 
 ```
-github-enhance-extension/
+github-enhancer-extension/
 ├── LICENSE                         # MIT License
 ├── README.md                       # English documentation
 └── src/
@@ -102,10 +102,6 @@ github-enhance-extension/
     │   ├── material-icons/         # Material icon replacement
     │   ├── repo-size/              # Repository & file size display
     │   └── time-format/            # Relative time formatting
-    ├── lib/
-    │   ├── api.js                  # GitHub API wrapper
-    │   ├── storage.js              # Storage utility functions
-    │   └── utils.js                # General utility functions
     ├── icons/
     │   ├── icon16.png              # 16×16 extension icon
     │   ├── icon48.png              # 48×48 extension icon
@@ -128,7 +124,7 @@ github-enhance-extension/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/oopsunix/github-enhance-extension.git
+   git clone https://github.com/oopsunix/github-enhancer-extension.git
    ```
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable **Developer mode** in the top right corner
