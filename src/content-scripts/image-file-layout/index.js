@@ -2,7 +2,7 @@
   'use strict'
 
   var IMG_EXT = /\.(png|jpg|jpeg|gif|tif|tiff|bmp|svg|webp|ico)$/i
-  var MODE = 'list'
+  var MODE = globalThis.GE_DEFAULTS.fl_mode
   var observer = null
   var previewContainer = null
   var currentRowsHash = null

@@ -1,7 +1,7 @@
 (function () {
   'use strict'
 
-  var PATTERN = 'YY-MM-DD HH:mm'
+  var PATTERN = globalThis.GE_DEFAULTS.tf_pattern
   var observer = null
   var rafId = null
 

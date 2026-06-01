@@ -2,7 +2,7 @@
   'use strict'
   console.log('[GitHub Enhancer] back-to-top loaded')
 
-  var ENABLED = true
+  var ENABLED = globalThis.GE_DEFAULTS.bt_enabled
   var btn = null
 
   function make() {

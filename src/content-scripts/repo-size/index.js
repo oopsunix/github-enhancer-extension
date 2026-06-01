@@ -1,7 +1,7 @@
 (function () {
   'use strict'
 
-  var ENABLED = true
+  var ENABLED = globalThis.GE_DEFAULTS.rs_enabled
   var treeCache = null
   var fileObserver = null
   var statsObserver = null
@@ -194,7 +194,6 @@
       treeCache = await getTree(info.owner, info.repo, branch)
       if (!treeCache) treeCache = {}
     }
-
     var size = -1
     if (treeCache) {
       if (isDir) {

@@ -1,15 +1,4 @@
-const DEFAULTS = {
-  tf_enabled: true,
-  tf_pattern: 'YY-MM-DD HH:mm',
-  ip_enabled: true,
-  ip_mode: 'list',
-  rs_enabled: false,
-  rs_token: '',
-  mi_enabled: true,
-  bt_enabled: true,
-  bt_position: 'right',
-  bt_threshold: 300
-}
+import '../lib/defaults.js'
 
 var BASE_URL = 'https://rettend.github.io/github-material-icon-theme/download'
 var GET = function (url) { return fetch(BASE_URL + '/' + url) }
@@ -42,7 +31,7 @@ async function checkForMaterialIconsUpdate() {
 
 chrome.runtime.onInstalled.addListener(function (details) {
   if (details.reason === 'install') {
-    chrome.storage.sync.set(DEFAULTS)
+    chrome.storage.sync.set(globalThis.GE_DEFAULTS)
   }
   checkForMaterialIconsUpdate()
 })

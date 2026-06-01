@@ -1,7 +1,7 @@
 (function () {
   'use strict'
 
-  var ENABLED = true
+  var ENABLED = globalThis.GE_DEFAULTS.mi_enabled
   var observer = null
 
   var processedMainFileNames = new Set()

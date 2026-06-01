@@ -1,7 +1,7 @@
 (function () {
   'use strict'
 
-  var ENABLED = true
+  var ENABLED = globalThis.GE_DEFAULTS.ip_enabled
 
   var mask, container, imgEl, closeBtn, downloadBtn, prevBtn, nextBtn
   var scale = 1, tx = 0, ty = 0, dragging = false
