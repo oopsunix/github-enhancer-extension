@@ -83,6 +83,7 @@ function saveSetting(key, value) {
 
 function showStatus(msg) {
   const el = document.getElementById('ge-status')
+  if (!el) return
   el.textContent = msg
   el.style.opacity = '1'
   setTimeout(() => { el.style.opacity = '0' }, 1500)

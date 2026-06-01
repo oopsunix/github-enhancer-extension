@@ -36,8 +36,7 @@ async function checkForMaterialIconsUpdate() {
     }
     return { updated: false }
   } catch (e) {
-    console.error('[Material Icons] Failed to check for updates:', e)
-    throw e
+    console.warn('[Material Icons] Failed to check for updates (offline?):', e.message)
   }
 }
 
