@@ -3,8 +3,8 @@
   <h1 align="center">GitHub Enhancer</h1>
   <p align="center">一款提升 GitHub 日常使用体验的浏览器扩展</p>
   <p align="center">
-    <a href="README.md">English</a>
-    <strong> · 简体中文</strong>
+    <a href="README.md">English</a> •
+    <a href="README_CN.md">中文</a>
   </p>
   <br>
 </div>
@@ -118,7 +118,7 @@ github-enhancer-extension/
 
 ### Chrome / Microsoft Edge 网上应用商店
 
-> 待上架
+> [GitHub Enhancer - Chrome Web Store](https://chromewebstore.google.com/detail/github-enhancer/bijbdpbilplgljionndeiphhfimdmbbi)
 
 ### 开发者模式安装
 

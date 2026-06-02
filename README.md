@@ -3,8 +3,8 @@
   <h1 align="center">GitHub Enhancer</h1>
   <p align="center">A browser extension that enhances your daily GitHub experience</p>
   <p align="center">
-    <strong>English · </strong>
-    <a href="README_CN.md">简体中文</a>
+    <a href="README.md">English</a> •
+    <a href="README_CN.md">中文</a>
   </p>
   <br>
 </div>
@@ -118,7 +118,7 @@ github-enhancer-extension/
 
 ### Chrome / Microsoft Edge Web Store
 
-> Coming soon
+> [GitHub Enhancer - Chrome Web Store](https://chromewebstore.google.com/detail/github-enhancer/bijbdpbilplgljionndeiphhfimdmbbi)
 
 ### Developer Mode Installation
 
