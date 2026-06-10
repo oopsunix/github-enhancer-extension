@@ -2,6 +2,7 @@
   'use strict'
 
   var IMG_EXT = /\.(png|jpg|jpeg|gif|tif|tiff|bmp|svg|webp|ico)$/i
+  var ENABLED = globalThis.GE_DEFAULTS.fl_enabled
   var MODE = globalThis.GE_DEFAULTS.fl_mode
   var observer = null
   var previewContainer = null
@@ -75,7 +76,9 @@
   }
 
   function getTable() {
-    return $('.Table-module__Box__HZKiQ')
+    var cell = $('.react-directory-row-name-cell-large-screen')
+    if (!cell || !cell.parentElement) return null
+    return cell.parentElement.parentElement
   }
 
   function toggleView(m) {
@@ -170,23 +173,52 @@
     }
   }
 
-  observer = new MutationObserver(function () {
-    if (updateTimer) clearTimeout(updateTimer)
-    updateTimer = setTimeout(function () {
-      var hash = getRowsHash()
-      if (hash && hash !== currentRowsHash) {
-        syncView()
-      }
-    }, 150)
-  })
-  observer.observe(document.documentElement, { childList: true, subtree: true })
+  function startObserver() {
+    if (observer) return
+    observer = new MutationObserver(function () {
+      if (updateTimer) clearTimeout(updateTimer)
+      updateTimer = setTimeout(function () {
+        var hash = getRowsHash()
+        if (hash && hash !== currentRowsHash) {
+          syncView()
+        }
+      }, 150)
+    })
+    observer.observe(document.documentElement, { childList: true, subtree: true })
+  }
+
+  function stopObserver() {
+    if (observer) { observer.disconnect(); observer = null }
+    if (updateTimer) { clearTimeout(updateTimer); updateTimer = null }
+    removeButtons()
+    resetView()
+  }
 
   try {
     chrome.storage.sync.get(['fl_enabled', 'fl_mode'], function (r) {
+      if (r.fl_enabled !== undefined) ENABLED = r.fl_enabled
       if (r.fl_mode !== undefined) MODE = r.fl_mode
-      if (getRows().length > 0) syncView()
+      if (ENABLED) {
+        startObserver()
+        if (getRows().length > 0) syncView()
+      }
     })
-  } catch (e) {
-    if (getRows().length > 0) syncView()
-  }
+  } catch (e) {}
+
+  chrome.storage.onChanged.addListener(function (changes, area) {
+    if (area !== 'sync') return
+    if (changes.fl_mode) {
+      MODE = changes.fl_mode.newValue
+      if (ENABLED) syncView()
+    }
+    if (changes.fl_enabled) {
+      ENABLED = changes.fl_enabled.newValue
+      if (ENABLED) {
+        startObserver()
+        if (getRows().length > 0) syncView()
+      } else {
+        stopObserver()
+      }
+    }
+  })
 })()

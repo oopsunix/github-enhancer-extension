@@ -10,6 +10,7 @@ const STORAGE_KEYS = [
 const DEFAULTS = globalThis.GE_DEFAULTS
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.ge-version').textContent = 'v' + chrome.runtime.getManifest().version
   loadSettings()
   bindEvents()
 })

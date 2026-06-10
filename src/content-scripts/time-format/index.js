@@ -1,6 +1,7 @@
 (function () {
   'use strict'
 
+  var ENABLED = globalThis.GE_DEFAULTS.tf_enabled
   var PATTERN = globalThis.GE_DEFAULTS.tf_pattern
   var observer = null
   var rafId = null
@@ -77,13 +78,54 @@
     scheduleFormat()
   }
 
-  formatAll()
-  startObserver()
+  function init() {
+    chrome.storage.sync.get(['tf_enabled', 'tf_pattern'], function (r) {
+      if (r.tf_enabled !== undefined) ENABLED = r.tf_enabled
+      if (r.tf_pattern !== undefined) PATTERN = r.tf_pattern
+      if (ENABLED) start()
+    })
 
-  document.addEventListener('turbo:render', onPageChange)
-  document.addEventListener('turbo:load', onPageChange)
-  window.addEventListener('popstate', onPageChange)
-  document.addEventListener('visibilitychange', function () {
+    chrome.storage.onChanged.addListener(function (changes, area) {
+      if (area !== 'sync') return
+      if (changes.tf_pattern) {
+        PATTERN = changes.tf_pattern.newValue
+        if (ENABLED) scheduleFormat()
+      }
+      if (changes.tf_enabled) {
+        ENABLED = changes.tf_enabled.newValue
+        if (ENABLED) start()
+        else stop()
+      }
+    })
+  }
+
+  var started = false
+
+  function start() {
+    if (started) return
+    started = true
+    formatAll()
+    startObserver()
+    document.addEventListener('turbo:render', onPageChange)
+    document.addEventListener('turbo:load', onPageChange)
+    window.addEventListener('popstate', onPageChange)
+    document.addEventListener('visibilitychange', onVisible)
+  }
+
+  function stop() {
+    if (!started) return
+    started = false
+    if (observer) { observer.disconnect(); observer = null }
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null }
+    document.removeEventListener('turbo:render', onPageChange)
+    document.removeEventListener('turbo:load', onPageChange)
+    window.removeEventListener('popstate', onPageChange)
+    document.removeEventListener('visibilitychange', onVisible)
+  }
+
+  function onVisible() {
     if (!document.hidden) scheduleFormat()
-  })
+  }
+
+  init()
 })()

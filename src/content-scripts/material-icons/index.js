@@ -209,6 +209,11 @@
       observer.disconnect()
       observer = null
     }
+    processedMainFileNames.clear()
+    processedTreeFileNames.clear()
+    processedTreeFolders.clear()
+    processedActionListFileNames.clear()
+    processedActionListFolders.clear()
   }
 
   function init() {

@@ -1,8 +1,8 @@
 (function () {
   'use strict'
-  console.log('[GitHub Enhancer] back-to-top loaded')
 
   var ENABLED = globalThis.GE_DEFAULTS.bt_enabled
+  var THRESHOLD = globalThis.GE_DEFAULTS.bt_threshold
   var btn = null
 
   function make() {
@@ -17,19 +17,48 @@
 
   function onScroll() {
     if (!btn) return
-    btn.classList.toggle('ge-btt-show', window.scrollY > 300)
+    btn.classList.toggle('ge-btt-show', window.scrollY > THRESHOLD)
   }
 
-  make()
-  onScroll()
-  window.addEventListener('scroll', onScroll, { passive: true })
+  function start() {
+    make()
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+  }
+
+  function stop() {
+    window.removeEventListener('scroll', onScroll)
+    if (btn) { btn.remove(); btn = null }
+  }
+
+  function applyPosition(pos) {
+    if (!btn) return
+    if (pos === 'left') {
+      btn.style.right = 'auto'; btn.style.left = '24px'
+    } else {
+      btn.style.left = 'auto'; btn.style.right = '24px'
+    }
+  }
 
   try {
-    chrome.storage.sync.get(['bt_enabled', 'bt_position'], function (r) {
+    chrome.storage.sync.get(['bt_enabled', 'bt_position', 'bt_threshold'], function (r) {
       if (r.bt_enabled !== undefined) ENABLED = r.bt_enabled
-      if (r.bt_position === 'left' && btn) {
-        btn.style.right = 'auto'; btn.style.left = '24px'
+      if (r.bt_threshold !== undefined) THRESHOLD = r.bt_threshold
+      if (ENABLED) {
+        start()
+        if (r.bt_position) applyPosition(r.bt_position)
       }
     })
   } catch (e) {}
+
+  chrome.storage.onChanged.addListener(function (changes, area) {
+    if (area !== 'sync') return
+    if (changes.bt_threshold) THRESHOLD = changes.bt_threshold.newValue
+    if (changes.bt_position) applyPosition(changes.bt_position.newValue)
+    if (changes.bt_enabled) {
+      ENABLED = changes.bt_enabled.newValue
+      if (ENABLED) start()
+      else stop()
+    }
+  })
 })()
